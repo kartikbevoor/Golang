@@ -20,5 +20,5 @@ func main() {
 	//maps()
 	//functions() // learn abt Function factory
 	//closures()
-	//recursion() // pending
+	//recursion()
 }
