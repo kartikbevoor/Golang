@@ -12,3 +12,6 @@ Functions
 FunctionsReturningFunctions
 Closures
 Recursion
+Range over builtin types
+Pointers
+Strings and Runes

@@ -17,7 +17,7 @@ func outer() func() {
 
 // returning a function with parameters
 func multiplier(factor int) func(int) int { // here multiplier is a funtion which takes the int, returns the function which inturn takes the int and returns an int
-	return func(n int) int { // the inner function remembers function even after multiplier has finished execution
+	return func(n int) int { // the inner function remembers factor even after multiplier has finished execution
 		return n * factor // closure concept
 	}
 }

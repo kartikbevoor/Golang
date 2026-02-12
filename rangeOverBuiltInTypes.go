@@ -34,6 +34,7 @@ func ranges() {
 		fmt.Println(i, r)
 	}
 
+	// range over maps
 	m := map[string]int{
 		"a": 1,
 		"b": 2,
@@ -44,4 +45,52 @@ func ranges() {
 	}
 	// Order is RANDOM, Iteration order is not guaranteed, Changes between runs
 
+	// cover this topic once you do goroutines and get basic understanding of channesl
+	// range over channels
+	ch := make(chan int)
+
+	go func() {
+		ch <- 1
+		ch <- 2
+		close(ch)
+	}()
+
+	for v := range ch {
+		fmt.Println(v)
+	}
+
+	// Loop continues until channel is CLOSED
+	// If not closed → deadlock
+
+	// ignoring index
+	for _, value := range nums {
+		fmt.Println(value)
+	}
+
+	// ignoring value
+	for i := range nums {
+		fmt.Println(i)
+	}
+
+	// Range Copies Values
+	for _, v := range nums {
+		go func() {
+			fmt.Println(v)
+		}()
+	} // 3, 3, 3
+
+	// to fix the above issue: shadow variable
+	for _, value := range nums {
+		value := value
+		go func() {
+			fmt.Println(value)
+		}()
+	}
+
+	// passing it as parameter
+	for _, value := range nums {
+		go func(value int) {
+			fmt.Println(value)
+		}(value)
+	}
 }
