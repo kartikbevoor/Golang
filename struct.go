@@ -48,6 +48,24 @@ func structs() {
 		empId: "d23",
 	}
 	fmt.Println(emp2.name) // still accessed using . operator; No need (*p).Name Go automatically dereferences.
+
+	// embedded struct usage(ananomous)
+	bankAccount := bankAccountDetails{
+		personEmbedded: personEmbedded{name: "fam", age: 23},
+		accNo:          343,
+		accType:        "savings account",
+	}
+
+	bankAccount.accType = "current account"
+	bankAccount.age = 24
+
+	// embedded struct usage(composition)
+	card := cardDetails{
+		personEmbedded:     personEmbedded{name: "jam", age: 45},
+		bankAccountDetails: bankAccountDetails{accNo: 7448, accType: "savings"},
+		cardNo:             1234,
+	}
+	card.bankAccountDetails.accType = "current"
 }
 
 type employee struct {
@@ -87,4 +105,37 @@ func updateRole(e employee) {
 
 func updateRole2(e *employee) {
 	e.age = 43
+}
+
+// struct methods; methods: are nothing but functions with recievers
+// this is an example of value reciever does not modify the original
+func (e employee) greet() {
+	fmt.Println("Hello", e.name)
+}
+
+// pointer reciever
+// modifies original
+func (e *employee) changeName() {
+	e.name = "newName"
+}
+
+// Embedded structs: embedded structs (often called anonymous fields) are a way to include one struct inside another without giving it a field name.
+// This enables composition and field/method promotion, which is Go’s preferred alternative to classical inheritance.
+// ananymous embeding
+type personEmbedded struct {
+	name string
+	age  int
+}
+
+type bankAccountDetails struct {
+	personEmbedded
+	accNo   int
+	accType string
+}
+
+// composition embedding
+type cardDetails struct {
+	personEmbedded     personEmbedded
+	bankAccountDetails bankAccountDetails
+	cardNo             int
 }
