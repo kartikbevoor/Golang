@@ -71,6 +71,7 @@ type person2 struct {
 // without pointers: this does not modify in original struct
 func updateAge(p person) {
 	p.age = 50
+	fmt.Println(p.age)
 }
 
 // with pointers: modifies in original struct

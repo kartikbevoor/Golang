@@ -28,10 +28,11 @@ func sayHello() {
 }
 
 // function with multiple return value
-func divide(a, b int) (int, int) {
+func divide(a, b int) (int, int, string) {
+	str := "go"
 	quotient := a / b
 	reminder := a % b
-	return quotient, reminder
+	return quotient, reminder, str
 }
 
 // q, r := divide(10, 3) this is how the above function is called
@@ -76,13 +77,20 @@ func add4(numbers ...int) int {
 	return total
 }
 
+// Variadic function : A function that accepts variable number of arguments.
+// It can be zero parameters or any number of parameters.
+// “...Type”, indicates variadic parameter.
+// Inside a variadic function, the parameters behave like a slice.
+// Note: Only one variadic parameter allowed and variadic parameter must be last.
+// Variadic parameters are converted to slice.
+
 // calls for the above function
 // sum(1, 2, 3)
 // sum(1, 2, 3, 4, 5)
 
 // passing a slice
 // nums := []int{1, 2, 3}
-// sum(nums...)
+// sum(nums...)  // This is how you pass a slice
 
 // function as values
 // func add(a, b int) int {

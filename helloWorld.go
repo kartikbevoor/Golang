@@ -24,6 +24,7 @@ func main() {
 	//ranges()
 	//pointers()
 	//stringsAndRunes()
+
 	nums := []int{1, 2, 3}
 
 	for _, v := range nums {
