@@ -24,6 +24,7 @@ func main() {
 	//ranges()
 	//pointers()
 	//stringsAndRunes()
+	//structs()
 
 	nums := []int{1, 2, 3}
 

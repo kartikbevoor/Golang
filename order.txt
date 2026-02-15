@@ -15,3 +15,6 @@ Recursion
 Range over builtin types
 Pointers
 Strings and Runes
+Structs
+Methods
+Interfaces
