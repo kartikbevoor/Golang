@@ -18,7 +18,7 @@ func main() {
 	fmt.Println(" - for Substraction.")
 	fmt.Println(" * for Multiplication.")
 	fmt.Println(" / for division.")
-	fmt.Println(" ! to exit.")
+	fmt.Println(" = to exit.")
 
 	for isCalculating {
 		fmt.Println("Enter your operation: ")
@@ -96,7 +96,7 @@ func main() {
 				}
 			}
 
-		case "!":
+		case "=":
 			isCalculating = false
 			fmt.Println("Your final result is:", result)
 			fmt.Println("Terminated")

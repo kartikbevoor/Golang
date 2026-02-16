@@ -154,7 +154,7 @@ func (e *employee) changeName() {
 
 // Embedded structs: embedded structs (often called anonymous fields) are a way to include one struct inside another without giving it a field name.
 // This enables composition and field/method promotion, which is Go’s preferred alternative to classical inheritance.
-// ananymous embeding
+// ananymous embedding
 type personEmbedded struct {
 	name string
 	age  int
