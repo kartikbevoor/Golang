@@ -80,6 +80,17 @@ func interfaces() {
 	// var b2 interface{} = []int{1,2}
 	// fmt.Println(a2 == b2) // panic (slice not comparable)
 
+	// error interface
+	var e1 error
+	e1 = myError{
+		thisError: "error",
+	}
+	fmt.Println(e1.Error())
+
+	// Nil Interface Trap Example
+	err := getError()
+	fmt.Println(err == nil) // false
+
 }
 
 // ex
@@ -170,4 +181,29 @@ type B interface {
 type C interface {
 	A
 	B
+}
+
+// Ex: error interface
+type error interface {
+	Error() string
+}
+
+type myError struct {
+	thisError string
+}
+
+func (e myError) Error() string {
+	return e.thisError
+}
+
+// Nil Interface Trap Example
+type myError2 struct{}
+
+func (e *myError2) Error() string {
+	return "error"
+}
+
+func getError() error {
+	var e *myError2 = nil
+	return e
 }

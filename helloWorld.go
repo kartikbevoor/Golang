@@ -26,6 +26,7 @@ func main() {
 	//stringsAndRunes()
 	//structs()
 	//methods()
+	//interfaces()
 
 	nums := []int{1, 2, 3}
 
