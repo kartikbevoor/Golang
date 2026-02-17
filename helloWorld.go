@@ -27,7 +27,7 @@ func main() {
 	//structs()
 	//methods()
 	//interfaces()
-	enums()
+	//enums()
 
 	nums := []int{1, 2, 3}
 
