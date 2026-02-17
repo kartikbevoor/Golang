@@ -28,7 +28,8 @@ func main() {
 	//methods()
 	//interfaces()
 	//enums()
-	generics()
+	//generics()
+	rangeOverIterators()
 
 	nums := []int{1, 2, 3}
 

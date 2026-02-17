@@ -60,7 +60,7 @@ func (ai *alein) changeId() {
 	ai.id = 121
 }
 
-// value reciever gets a copy pointer reciever gets a reference
+// value reciever gets a copy, pointer reciever gets a reference
 // value reciever cannot modify the original, pointer reciever can modify the original
 // pointer reciever is more efficient for large struct
 
