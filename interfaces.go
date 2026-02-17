@@ -116,6 +116,7 @@ type Cat struct {
 	sound string
 }
 
+// This and above speak function are example of polymorphism
 func (c Cat) speak() string {
 	return "Meow"
 }

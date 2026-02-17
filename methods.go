@@ -16,8 +16,7 @@ func methods() {
 
 	// reciever of type non-struct
 	var mi myInt = 10
-	mi.double()
-	fmt.Println(mi)
+	fmt.Println(mi.double())
 
 	// Method expression
 	alein2 := alein{
@@ -62,7 +61,7 @@ func (ai *alein) changeId() {
 }
 
 // value reciever gets a copy pointer reciever gets a reference
-// value reciever cannot modify the original pointer reciever can modify the original
+// value reciever cannot modify the original, pointer reciever can modify the original
 // pointer reciever is more efficient for large struct
 
 // Methods on non-struct types
@@ -77,7 +76,7 @@ func (mi myInt) double() int {
 
 // Method sets: determine what methods are available for: T and *T
 // T: Has all methods with value receivers
-// *T: Has all methods with value receivers and Has all methods with pointer receivers
+// *T: Has all methods with value receivers and has all methods with pointer receivers
 
 // Embedded struct and Promoted Methods
 type animal struct {

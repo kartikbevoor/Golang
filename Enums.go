@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Enum (enumeration): A type that consists of a set of named constant values.
 func enums() {
@@ -24,6 +26,20 @@ func enums() {
 	if p != 0 {
 		fmt.Printf("read")
 	} // generally used with switches
+
+	// Enum Zero Value Problem
+	//var s4 status // this is assigned to 0, but in status its for pending but s4 is not assigned to pending hence 0 value problem.
+	// so its better to start with unknown assigned to 0.
+
+	// comparing enums
+	if s2 == Apporved {
+		fmt.Println("Approved")
+	}
+
+	var o orderStatus
+	o = orderDelivered
+	fmt.Println(o.viewOrderStatus())
+	fmt.Println(o) // this is same as fmt.Println(o.String()) {some in-built go thing}
 
 }
 
@@ -108,4 +124,52 @@ const (
 	read    permission = 1 << iota // 1 (001)
 	write                          // 2 (010)
 	execute                        // 4 (100)
+)
+
+// ex: order status
+type orderStatus int
+
+const (
+	orderCreated orderStatus = iota
+	orderPaid
+	orderShipped
+	orderDelivered
+	orderCancelled
+)
+
+func (o orderStatus) viewOrderStatus() string {
+	return [...]string{ // this creates an array string, ... tells Go to automatically determine the array size based on the number of elements.
+		"Created",
+		"Paid",
+		"Shipped",
+		"Delivered",
+		"Cancelled",
+	}[o] // [o] this is array indexing here
+}
+
+// if o has invalid value like 10, which causes panic: runtime error array out of range
+
+// safe use which avoids the panic
+func (o orderStatus) String() string {
+	statusus := [...]string{
+		"Created",
+		"Paid",
+		"Shipped",
+		"Delivered",
+		"Cancelled",
+	}
+
+	if o < 0 || int(o) > len(statusus) {
+		return "unknown"
+	}
+	return statusus[0]
+}
+
+// using role and underlying type
+type role string
+
+const (
+	Junior  role = "junior"
+	Manager role = "manager"
+	SDE     role = "developer"
 )
