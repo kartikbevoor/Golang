@@ -28,6 +28,7 @@ func main() {
 	//methods()
 	//interfaces()
 	//enums()
+	generics()
 
 	nums := []int{1, 2, 3}
 
