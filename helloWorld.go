@@ -30,7 +30,8 @@ func main() {
 	//enums()
 	//generics()
 	//rangeOverIterators()
-	goErrors()
+	//goErrors()
+	customErrors()
 
 	nums := []int{1, 2, 3}
 
