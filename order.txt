@@ -22,3 +22,6 @@ Enums
 Struct Embedding
 Generics
 Range over Iterators
+Errors
+Custom Errors
+Goroutines

@@ -29,7 +29,8 @@ func main() {
 	//interfaces()
 	//enums()
 	//generics()
-	rangeOverIterators()
+	//rangeOverIterators()
+	goErrors()
 
 	nums := []int{1, 2, 3}
 
