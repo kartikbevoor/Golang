@@ -38,6 +38,7 @@ func main() {
 	//channelSynchronization()
 	//channelDirection()
 	//selectGo()
+	//timeouts()
 
 	nums := []int{1, 2, 3}
 
