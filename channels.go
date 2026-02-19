@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 // Desclaimer: this file only covers basics of channels cover it later
+// A channel is a typed conduit through which goroutines communicate.
 func channels() {
 	// channel declaration
 	// var ch chan int
@@ -20,6 +21,24 @@ func channels() {
 
 	// buffered channels
 	// ch := make(chan int, 3)	// buffer size 3
+
+	close(ch)
+	// After closing:
+	// Receivers can still read remaining values.
+	// Sending causes panic
+
+	// Detect closed channels
+	v, ok := <-ch
+	if !ok {
+		fmt.Println("channel closed")
+	} else {
+		fmt.Println(v)
+	}
+
+	// Range over channels
+	for v := range ch {
+		fmt.Println(v)
+	}
 
 }
 
