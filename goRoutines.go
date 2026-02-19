@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"sync"
 	"time"
@@ -55,7 +56,6 @@ func goRoutines() {
 	} // or just pass v as parameter
 
 	// Synchronization (Waiting for Goroutines)
-
 	var wg sync.WaitGroup
 	wg.Add(1)
 
@@ -86,6 +86,20 @@ func goRoutines() {
 		count2++
 		mu.Unlock()
 	}()
+
+	// Worker pool pattern
+	jobs := make(chan int, 5)
+
+	for i := 0; i < 3; i++ {
+		go workerPool(i, jobs)
+	}
+
+	for i := 0; i < 5; i++ {
+		jobs <- i
+	}
+
+	close(jobs)
+	time.Sleep(3 * time.Second)
 
 }
 
@@ -159,3 +173,75 @@ func noExitCondition() { // thsi function runs forever
 		time.Sleep(time.Second)
 	}
 }
+
+// Using Context with Goroutines: to control and stop goroutines safely.
+func contextGo() {
+	ctx, cancel := context.WithCancel(context.Background()) // creating a context
+	// context.Background() → creates a root context (never canceled on its own).
+	// context.WithCancel(...) → creates a child context that:
+	// Can be canceled manually.
+	// Returns:
+	// ctx → the context you pass around
+	// cancel() → a function you call to stop it
+
+	go func() {
+		for {
+			select { // select is used to wait on multiple channel operations. It works like a switch, but for channels. It blocks until one of the channel cases is ready.
+			case <-ctx.Done():
+				fmt.Println("Stopped")
+				return
+			default: // this default statement is to prevent the loop statement for spining contineously
+				time.Sleep(100 * time.Millisecond)
+			}
+		}
+	}()
+	// The goroutine runs an infinite loop.
+	// Inside it, select waits for something to happen.
+	// <-ctx.Done() waits for the context to be canceled.
+	// When cancel() is called:
+	// ctx.Done() channel closes
+	// The goroutine receives the signal
+	// "Stopped" is printed
+	// The goroutine exits with return
+	// The above goroutine runs until cancelled
+
+	time.Sleep(time.Second)
+	cancel()
+	// Closes the ctx.Done() channel
+	// Signals all goroutines using this context
+	// Stops them cleanly
+
+	// Instead of manual cancel
+	// ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+
+}
+
+// Select Statement:
+// Used to wait on multiple channel operations.
+func selectStatement(ch chan int) {
+	select {
+	case msg := <-ch:
+		fmt.Println(msg)
+	case ch <- 10:
+		fmt.Println("Sent")
+	default:
+		fmt.Println("No communication")
+	}
+}
+
+// Worker pool pattern
+func workerPool(id int, jobs <-chan int) {
+	for job := range jobs {
+		fmt.Printf("Worker %d doing job %d\n", id, job)
+		time.Sleep(time.Second)
+		fmt.Printf("Worker %d finished job %d\n", id, job)
+	}
+	fmt.Printf("Worker %d exiting\n", id)
+}
+
+// Deadlock
+// ch := make(chan int)
+// ch <- 1
+// here only sender no receiver, this is unbuffered channel it has 0 capacity and no storage
+// so, it always need a receiver when it sends so deadlock
+// Send and receive must happen at the same time

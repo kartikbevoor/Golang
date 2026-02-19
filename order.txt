@@ -25,3 +25,8 @@ Range over Iterators
 Errors
 Custom Errors
 Goroutines
+Channels                    // only basics
+Channel Buffering           // only basics
+Channel Synchronization     // only basics
+Channel Directions
+Select

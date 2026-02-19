@@ -31,7 +31,10 @@ func main() {
 	//generics()
 	//rangeOverIterators()
 	//goErrors()
-	customErrors()
+	//customErrors()
+	//goRoutines()
+	//channels()
+	channelBuffering()
 
 	nums := []int{1, 2, 3}
 
