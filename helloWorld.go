@@ -34,7 +34,9 @@ func main() {
 	//customErrors()
 	//goRoutines()
 	//channels()
-	channelBuffering()
+	//channelBuffering()
+	//channelSynchronization()
+	//channelDirection()
 
 	nums := []int{1, 2, 3}
 

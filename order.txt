@@ -28,5 +28,5 @@ Goroutines
 Channels                    // only basics
 Channel Buffering           // only basics
 Channel Synchronization     // only basics
-Channel Directions
+Channel Directions          // only basics
 Select
