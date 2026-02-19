@@ -29,4 +29,5 @@ Channels                    // only basics
 Channel Buffering           // only basics
 Channel Synchronization     // only basics
 Channel Directions          // only basics
-Select
+Select                      // only basics
+Timeouts

@@ -37,6 +37,7 @@ func main() {
 	//channelBuffering()
 	//channelSynchronization()
 	//channelDirection()
+	//selectGo()
 
 	nums := []int{1, 2, 3}
 
