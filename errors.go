@@ -24,6 +24,8 @@ func goErrors() {
 	// err := fmt.Errorf("user %d not found", userID)
 
 	// Error Wrapping
+	// Error wrapping in Go is a technique that lets you add context to an existing error
+	// while preserving the original error inside it.
 	err3 := fmt.Errorf("failed to read file: %w", err)
 
 	// Checking Wrapped Errors: errors.Is()

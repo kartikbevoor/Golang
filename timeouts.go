@@ -14,6 +14,7 @@ func timeouts() {
 
 	// Timeout Using context.WithTimeout()
 	// ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+
 }
 
 // Using context.WithTimeout
@@ -43,12 +44,37 @@ func contextWithTimeout() {
 
 // The whole line means: Create a new context that will automatically cancel after 2 seconds.
 
+// ctx → of type context.Context
+// cancel → of type context.CancelFunc (which is func())
+// context.Background
+// It returns a base context:
+// It is never canceled
+// It has no timeout
+// It has no values
+// It is typically used at the top level (like in main())
+// Think of it as the root of a context tree
+// context.WithTimeout(parentContext, duration)
+// Creates a new child context
+// That automatically cancels after the given duration
+// Returns:
+// The new context
+// A cancel function
+// Internally: func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
+// Creates a new context struct
+// Links it to the parent (Background)
+// Starts a timer for 2 seconds
+// When the timer fires:
+// It cancels the context
+// Closes the Done() channel
+// Sets the error to context.DeadlineExceeded
+
 // Timeout for http clients:
 func timeoutForHttpClient() {
 	client := http.Client{
 		Timeout: 2 * time.Second,
 	}
 	fmt.Println(client)
+
 }
 
 // resp, err := client.Get("https://example.com") // if this request exceeds 2 secs error occurs

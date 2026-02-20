@@ -33,6 +33,8 @@ func receiveMulChan() {
 	select {
 	case msg := <-ch1:
 		fmt.Println(msg)
+	// case <-time.After(2 * time.Second):
+	// 	fmt.Println("time")
 	case msg := <-ch2:
 		fmt.Println(msg)
 		// default: // dont use this, this is ready before everyone

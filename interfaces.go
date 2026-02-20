@@ -18,6 +18,9 @@ func interfaces() {
 
 	s.speak()
 
+	// Interface as a function parameter
+	makeSpeak(s)
+
 	// polymorphism
 	animals := []speaker{dog{sound: "woff"}, Cat{sound: "meow"}}
 	for _, v := range animals {

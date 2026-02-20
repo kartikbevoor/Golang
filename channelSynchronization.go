@@ -21,7 +21,8 @@ func channelSynchronization() {
 	go func() {
 		chStruct <- struct{}{}
 	}()
-	<-chStruct
+	// <-chStruct
+	// <-chStruct // confirm this condition
 	// here we are using empty struct becos 0 mem used.
 
 	// Pattern to achive syn in Multiple goroutine syn

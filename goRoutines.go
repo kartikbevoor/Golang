@@ -26,7 +26,7 @@ func goRoutines() {
 	go sayHello()
 	time.Sleep(time.Second) // Wait so goroutine can finish
 	// Note: the above wait is due to, the go routines after the function in which they are called
-	// suppose if goroutine is written in main funtion and its last there may pasibility that it may never run
+	// suppose if goroutine is written in main funtion and its last there may posibility that it may never run
 
 	// Anonymous Goroutines
 	go func() {
@@ -57,6 +57,8 @@ func goRoutines() {
 
 	// Synchronization (Waiting for Goroutines)
 	var wg sync.WaitGroup
+	wg.Add(1)
+	wg.Add(1)
 	wg.Add(1)
 
 	go func() {
