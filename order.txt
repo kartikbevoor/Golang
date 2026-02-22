@@ -25,6 +25,7 @@ Range over Iterators
 Errors
 Custom Errors
 Panic
+Defer
 Goroutines
 Channels                    // only basics
 Channel Buffering           // only basics
