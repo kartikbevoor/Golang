@@ -32,6 +32,7 @@ func main() {
 	//rangeOverIterators()
 	//goErrors()
 	//customErrors()
+	//panicGo()
 	//goRoutines()
 	//channels()
 	//channelBuffering()
