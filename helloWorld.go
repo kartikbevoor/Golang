@@ -43,6 +43,8 @@ func main() {
 	//selectGo()
 	//timeouts()
 
+	randomNum()
+
 	nums := []int{1, 2, 3}
 
 	for _, v := range nums {
