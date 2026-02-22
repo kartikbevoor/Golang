@@ -26,6 +26,7 @@ Errors
 Custom Errors
 Panic
 Defer
+Recover
 Goroutines
 Channels                    // only basics
 Channel Buffering           // only basics

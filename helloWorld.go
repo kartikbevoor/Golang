@@ -34,6 +34,7 @@ func main() {
 	//customErrors()
 	//panicGo()
 	//deferGo()
+	//recover()
 	//goRoutines()
 	//channels()
 	//channelBuffering()
