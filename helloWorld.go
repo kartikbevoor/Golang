@@ -46,6 +46,8 @@ func main() {
 	//closingChannel()
 	//sorting()
 	//stringGo()
+	//formating()
+	//parsing()
 
 	//randomNum()
 
