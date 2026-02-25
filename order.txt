@@ -34,3 +34,6 @@ Channel Synchronization     // only basics
 Channel Directions          // only basics
 Select                      // only basics
 Timeouts                    // only basics
+Non blocking Channel operation // only basics
+closing operation           // only basics
+sorting                     // only basics

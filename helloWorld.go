@@ -44,6 +44,7 @@ func main() {
 	//timeouts()
 	//nonBlockingChannelOperation()
 	//closingChannel()
+	//sorting()
 
 	//randomNum()
 
