@@ -45,6 +45,7 @@ func main() {
 	//nonBlockingChannelOperation()
 	//closingChannel()
 	//sorting()
+	//stringGo()
 
 	//randomNum()
 

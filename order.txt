@@ -37,3 +37,4 @@ Timeouts                    // only basics
 Non blocking Channel operation // only basics
 closing operation           // only basics
 sorting                     // only basics
+String Functions            // only basics
