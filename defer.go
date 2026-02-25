@@ -7,7 +7,7 @@ import (
 )
 
 // defer is a keyword in Go that delays the execution of a function
-//  until the surrounding function returns.
+// until the surrounding function returns.
 
 // The deferred function runs: After the surrounding function finishes
 // Even if the function returns early, Even if a panic occurs (before crash, unless recovered)

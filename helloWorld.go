@@ -42,8 +42,9 @@ func main() {
 	//channelDirection()
 	//selectGo()
 	//timeouts()
+	//nonBlockingChannelOperation()
 
-	randomNum()
+	//randomNum()
 
 	nums := []int{1, 2, 3}
 
