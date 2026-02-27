@@ -96,7 +96,6 @@ func main() {
 				}
 			}
 
-		case "=":
 			isCalculating = false
 			fmt.Println("Your final result is:", result)
 			fmt.Println("Terminated")

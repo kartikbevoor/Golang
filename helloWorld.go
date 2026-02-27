@@ -48,6 +48,8 @@ func main() {
 	//stringGo()
 	//formating()
 	//parsing()
+	//jsonGo()
+	//xmlGo()
 
 	//randomNum()
 

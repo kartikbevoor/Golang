@@ -108,7 +108,7 @@ type personSorting struct {
 
 type byAge []personSorting
 
-func (a byAge) lenStruct() int {
+func (a byAge) lenStruct() int { // gives the length of byAge slice
 	return len(a)
 }
 
