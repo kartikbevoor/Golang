@@ -1,7 +1,10 @@
+// user.go line no 26: admin.OldAdminOrNew() not working
+
 package main
 
 import (
 	//"Ticket_Rising/utils"
+	admin "Ticket_Rising/Admin"
 	user "Ticket_Rising/User"
 	"fmt"
 )
@@ -35,21 +38,26 @@ type userRegistrationValidation interface { // common registration details valid
 }
 
 func UserOrAdmin() {
-	fmt.Println("Press 1 for user")
-	fmt.Println("Press 2 for Admin")
-	fmt.Println("Press 3 to exit")
+	for {
+		fmt.Println("Press 1 for user")
+		fmt.Println("Press 2 for Admin")
+		fmt.Println("Press 3 to exit")
 
-	var who int
-	fmt.Scan(&who)
+		var who int
+		fmt.Scan(&who)
 
-	switch who {
-	case 1:
-		fmt.Println("User")
-		user.UserStarting()
-	case 2:
-		fmt.Println("Admin")
-	case 3:
-		fmt.Println("Exit")
-		return
+		switch who {
+		case 1:
+			fmt.Println("User")
+			user.UserStarting()
+		case 2:
+			fmt.Println("Admin")
+			admin.OldAdminOrNew()
+		case 3:
+			fmt.Println("Exit")
+			return
+		default:
+			fmt.Println("Invalid choice")
+		}
 	}
 }

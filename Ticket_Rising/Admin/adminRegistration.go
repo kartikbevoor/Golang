@@ -1,4 +1,4 @@
-package user
+package admin
 
 import (
 	"Ticket_Rising/utils"
@@ -6,50 +6,52 @@ import (
 	"fmt"
 )
 
-// slice of users
-var Users []User
-
-type User struct {
+type Admin struct {
 	Name     string
 	Id       int
+	category string
 	UserName string
 	password string
 }
 
-func (u *User) Register() User {
+var Admins []Admin
+
+func (a *Admin) Register() Admin {
 	fmt.Println("Enter your name")
-	fmt.Scan(&u.Name)
+	fmt.Scan(&a.Name)
+	fmt.Println("Enter your category")
+	fmt.Scan(&a.category)
 	fmt.Println("Enter your Username")
-	fmt.Scan(&u.UserName)
+	fmt.Scan(&a.UserName)
 	fmt.Println("Enter your Password")
-	fmt.Scan(&u.password)
-	//fmt.Println(u)
+	fmt.Scan(&a.password)
+	// fmt.Println(a)
 
-	u.Id = utils.GenerateUserId()
+	a.Id = utils.GenerateUserId()
 
-	return *u
+	return *a
 }
 
-func (u *User) validatingUserRegistration() (bool, []error) {
+func (a *Admin) validatingAdminRegistration() (bool, []error) {
 	var err []error
 	isValid := true
-	if len(u.Name) < 2 {
+	if len(a.Name) < 2 {
 		isValid = false
 		err1 := errors.New("Invalid name: Name should be of atleast 2 character")
 		err = append(err, err1)
 	}
-	if len(u.password) != 4 {
+	if len(a.password) != 4 {
 		isValid = false
 		err2 := errors.New("Password should be of 4 digits")
 		err = append(err, err2)
 	}
-	if len(u.UserName) < 2 {
+	if len(a.UserName) < 2 {
 		isValid = false
 		err3 := errors.New("Invalid username: Userame should be of atleast 2 character")
 		err = append(err, err3)
 	}
-	for _, v := range Users {
-		if v.UserName == u.UserName {
+	for _, v := range Admins {
+		if v.UserName == a.UserName {
 			isValid = false
 			err4 := errors.New("Invalid username: Username already exists")
 			err = append(err, err4)

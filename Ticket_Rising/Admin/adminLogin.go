@@ -1,13 +1,12 @@
-package user
+package admin
 
-import (
-	"Ticket_Rising/utils"
-	"fmt"
-)
+import "fmt"
 
-func UserLogin() {
-	isUserLogin := false
-	for !isUserLogin {
+var ThisAdmin string
+
+func AdminLogin() {
+	isAdminLogin := false
+	for !isAdminLogin {
 		fmt.Println("Enter your login details")
 		var username string
 		var password string
@@ -18,17 +17,18 @@ func UserLogin() {
 		fmt.Println("Enter Password")
 		fmt.Scan(&password)
 
-		isUserLogin = isValidUserCredentials(username, password)
+		isAdminLogin = isValidAdminCredentials(username, password)
 
-		if isUserLogin {
-			utils.ThisUser = username
-			raiseTicketOrViewTicket()
+		if isAdminLogin {
+			ThisAdmin = username
+			AdminTicket()
 		}
+
 	}
 }
 
-func isValidUserCredentials(username string, password string) bool {
-	for _, v := range Users {
+func isValidAdminCredentials(username string, password string) bool {
+	for _, v := range Admins {
 		if v.UserName == username && v.password == password {
 			return true
 		}
