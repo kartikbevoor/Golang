@@ -1,9 +1,12 @@
 package utils
 
 import (
+	"bufio"
 	"errors"
 	"fmt"
 	"math/rand"
+	"os"
+	"strings"
 	"time"
 )
 
@@ -28,8 +31,25 @@ func (t *Ticket) RaiseTicket() Ticket {
 	fmt.Println("Enter your category")
 	fmt.Scan(&t.Category)
 
-	fmt.Println("Give description for your ticket")
-	fmt.Scan(&t.Description)
+	// fmt.Println("Give description for your ticket")
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Println("Give description for your ticket (press ENTER twice to finish):")
+
+	var lines []string
+	for {
+		line, _ := reader.ReadString('\n')
+		line = strings.TrimRight(line, "\r\n")
+
+		if line == "" { // stop on empty line
+			break
+		}
+		lines = append(lines, line)
+	}
+
+	description := strings.Join(lines, "\n")
+	t.Description = description
+	// fmt.Scan(&t.Description)
 
 	//now := time.Now()
 	formatted := time.Now().Format("15:04:05")

@@ -15,7 +15,8 @@ func raiseTicketOrViewTicket() {
 
 		fmt.Println("Press 1 to raise ticket")
 		fmt.Println("Press 2 to view ticket")
-		fmt.Println("Press 3 to logout")
+		fmt.Println("Press 3 to view Comments")
+		fmt.Println("Press 4 to logout")
 
 		fmt.Scan(&raiseOrView)
 
@@ -46,6 +47,8 @@ func raiseTicketOrViewTicket() {
 				}
 			}
 		case 3:
+			fmt.Println("Comments")
+		case 4:
 			fmt.Println("Logout")
 			return //UserOrAdmin()
 		}

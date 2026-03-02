@@ -2,12 +2,15 @@ package admin
 
 import (
 	"Ticket_Rising/utils"
+	"bufio"
 	"fmt"
+	"os"
+	"strings"
 )
 
 type Reply struct {
 	TicketId int
-	comment  string
+	Comment  string
 }
 
 var Replies []Reply
@@ -83,7 +86,25 @@ func ReplyToTicket() {
 	fmt.Scan(tempReply.TicketId)
 
 	fmt.Println("Comment to raised ticket")
-	fmt.Scan(&tempReply.comment)
+
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Println("Give description for your ticket (press ENTER twice to finish):")
+
+	var lines []string
+	for {
+		line, _ := reader.ReadString('\n')
+		line = strings.TrimRight(line, "\r\n")
+
+		if line == "" { // stop on empty line
+			break
+		}
+		lines = append(lines, line)
+	}
+
+	comment := strings.Join(lines, "\n")
+	tempReply.Comment = comment
+	// fmt.Scan(&tempReply.comment)
 
 	isvalid := isValidReply(tempReply.TicketId)
 	if isvalid {
