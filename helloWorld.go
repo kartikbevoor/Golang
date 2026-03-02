@@ -50,6 +50,8 @@ func main() {
 	//parsing()
 	//jsonGo()
 	//xmlGo()
+	//urlParsing()
+	cli()
 
 	//randomNum()
 

@@ -42,3 +42,4 @@ Formatting                  // only basics
 parsing                     // only basics
 Json                        // only basics
 XML                         // only basics
+URL parsing                 // only basics            
