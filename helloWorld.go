@@ -51,7 +51,8 @@ func main() {
 	//jsonGo()
 	//xmlGo()
 	//urlParsing()
-	cli()
+	//cli()
+	//httpTcp()
 
 	//randomNum()
 
