@@ -52,7 +52,9 @@ func main() {
 	//xmlGo()
 	//urlParsing()
 	//cli()
-	//httpTcp()
+	// httpClient()
+	// httpServer()
+	// tcpServer()
 
 	//randomNum()
 
