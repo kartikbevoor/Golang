@@ -56,6 +56,7 @@ func main() {
 	// httpServer()
 	// tcpServer()
 
+	//httpTcp()
 	//randomNum()
 
 	nums := []int{1, 2, 3}

@@ -18,6 +18,7 @@ func httpClient() {
 
 // Default HTTP Client: sends request and waits for the response
 func defaultHttpClient() {
+	// func http.Get(url string) (resp *http.Response, err error)
 	resp, err := http.Get("https://jsonplaceholder.typicode.com/posts/1") // .Get() creates request
 	// and send to resp, err := http.Get("https://jsonplaceholder.typicode.com/posts/1")
 	// Waits for the server to respond, Returns the response (resp) and any error
@@ -47,6 +48,7 @@ func defaultHttpClient() {
 func postRequest() {
 	jsonData := []byte(`{"name":"Kartik","balance":1000}`)
 
+	// func http.Post(url string, contentType string, body io.Reader) (resp *http.Response, err error)
 	resp, err := http.Post(
 		"https://httpbin.org/post", // This is the endpoint where the request is sent.
 		"application/json",         // Content-Type: sets the http header
@@ -70,7 +72,7 @@ func newRequest() {
 		panic(err)
 	}
 	// http.NewRequest: signature
-	// func NewRequest(method, url string, body io.Reader) (*http.Request, error)
+	// func NewRequest(method string, url string, body io.Reader) (*http.Request, error)
 
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer token123")
