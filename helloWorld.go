@@ -62,7 +62,11 @@ func main() {
 
 	// email
 	// go sendEmail("kartikbevoor2130@gmail.com", "welcome", "Henga adi huli")
-	err := sendEmail("kartikbevoor2130@gmail.com", "Welcome", "Henga adi huli")
+	// err := sendEmail("kartikbevoor2130@gmail.com", "Welcome", "Henga adi huli")
+	// fmt.Println(err)
+
+	// send email with attachement
+	err := SendEmailWithAttachement("kartikbevoor2130@gmail.com", "Welcome", "Henga adi huli")
 	fmt.Println(err)
 
 	// nums := []int{1, 2, 3}
