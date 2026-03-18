@@ -60,13 +60,18 @@ func main() {
 	//httpTcp()
 	//randomNum()
 
-	nums := []int{1, 2, 3}
+	// email
+	// go sendEmail("kartikbevoor2130@gmail.com", "welcome", "Henga adi huli")
+	err := sendEmail("kartikbevoor2130@gmail.com", "Welcome", "Henga adi huli")
+	fmt.Println(err)
 
-	for _, v := range nums {
-		go func() {
-			fmt.Println(v)
-		}()
-	}
+	// nums := []int{1, 2, 3}
+
+	// for _, v := range nums {
+	// 	go func() {
+	// 		fmt.Println(v)
+	// 	}()
+	// }
 	// the above goroutines are not running here becos after the loops the main ends and all the goroutines are killed
 
 }
