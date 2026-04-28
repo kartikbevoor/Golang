@@ -77,3 +77,17 @@ func basicCron() {
 // | | └──────── Hour
 // | └────────── Minute
 // └──────────── Second
+
+// Cron job without ananymous function (named function)
+func tellTime() {
+	fmt.Println("Running every 10 seconds:", time.Now())
+}
+
+func CronWithNamedFunction() {
+	c := cron.New()
+
+	c.AddFunc("@every 10s", tellTime)
+
+	c.Start()
+
+}
